@@ -1,83 +1,148 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="no-js">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {!! SEO::generate(true) !!}
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/animations.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/perfect-scrollbar.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!-- Animated Background -->
+    <div class="lm-animated-bg" style="background-image: url(img/main_bg.png);"></div>
+    <!-- /Animated Background -->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+    <!-- Loading animation -->
+    <div class="preloader">
+        <div class="preloader-animation">
+            <div class="preloader-spinner">
+            </div>
+        </div>
+    </div>
+    <!-- /Loading animation -->
 
-                    </ul>
+    <!-- Page content -->
+    <div class="page">
+        <div class="page-content">
+            <header id="site_header" class="header mobile-menu-hide">
+                <div class="header-content">
+                    <div class="header-photo">
+                        <img src="img/main_photo.jpg" alt="Toni Tri Supriadi">
+                    </div>
+                    <div class="header-titles">
+                        <h2>Toni Tri Supriadi</h2>
+                        <h4>Web Programmer</h4>
+                    </div>
+                </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                <ul class="main-menu">
+                    <li class="active">
+                        <a href="#home" class="nav-anim">
+                            <span class="menu-icon lnr lnr-home"></span>
+                            <span class="link-text">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about-me" class="nav-anim">
+                            <span class="menu-icon lnr lnr-user"></span>
+                            <span class="link-text">About Me</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#resume" class="nav-anim">
+                            <span class="menu-icon lnr lnr-graduation-hat"></span>
+                            <span class="link-text">Resume</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="nav-anim">
+                            <span class="menu-icon lnr lnr-briefcase"></span>
+                            <span class="link-text">Portfolio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#blog" class="nav-anim">
+                            <span class="menu-icon lnr lnr-book"></span>
+                            <span class="link-text">Blog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="nav-anim">
+                            <span class="menu-icon lnr lnr-envelope"></span>
+                            <span class="link-text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                <div class="social-links">
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
                     </ul>
                 </div>
-            </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+                <div class="header-buttons">
+                    <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+                </div>
+
+                <div class="copyrights">© 2020 All rights reserved.</div>
+            </header>
+
+            <!-- Mobile Navigation -->
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- End Mobile Navigation -->
+
+            <!-- Arrows Nav -->
+            <div class="lmpixels-arrows-nav">
+                <div class="lmpixels-arrow-right"><i class="lnr lnr-chevron-right"></i></div>
+                <div class="lmpixels-arrow-left"><i class="lnr lnr-chevron-left"></i></div>
+            </div>
+            <!-- End Arrows Nav -->
+
+            <!-- Content area -->
+            <div class="content-area">
+                <div class="animated-sections">
+                    @yield('content')
+                </div>
+            </div>
+            <!-- /Content area -->
+        </div>
     </div>
+    <!-- /Page content -->
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/modernizr.custom.js') }}"></script>
+    <script src="{{ asset('js/animating.js') }}"></script>
+
+    <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script src=" {{ asset('js/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.shuffle.min.js') }}"></script>
+    <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
+    <script src="{{ asset('js/jquery.googlemap.js') }}"></script>
+    <script src="{{ asset('js/validator.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
+
 </html>
