@@ -9,21 +9,21 @@
             <div class="col-xs-12 col-sm-4">
                 <div class="lm-info-block gray-default">
                     <i class="lnr lnr-map-marker"></i>
-                    <h4>San Francisco</h4>
+                    <h4>Purbalingga, Jawa Tengah</h4>
                     <span class="lm-info-block-value"></span>
                     <span class="lm-info-block-text"></span>
                 </div>
 
                 <div class="lm-info-block gray-default">
                     <i class="lnr lnr-phone-handset"></i>
-                    <h4>415-832-2000</h4>
+                    <h4>(+62) 895-3513-97216</h4>
                     <span class="lm-info-block-value"></span>
                     <span class="lm-info-block-text"></span>
                 </div>
 
                 <div class="lm-info-block gray-default">
                     <i class="lnr lnr-envelope"></i>
-                    <h4>alex@example.com</h4>
+                    <h4>me@tony3supriadi.com</h4>
                     <span class="lm-info-block-value"></span>
                     <span class="lm-info-block-text"></span>
                 </div>
@@ -46,7 +46,7 @@
                     <h3>How Can I <span>Help You?</span></h3>
                 </div>
 
-                <form id="contact_form" class="contact-form" action="contact_form/contact_form.php" method="post">
+                <form id="contact_form" class="contact-form" action="#" method="post">
 
                     <div class="messages"></div>
 

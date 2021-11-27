@@ -7,35 +7,35 @@
         <!-- Personal Information -->
         <div class="row">
             <div class="col-xs-12 col-sm-7">
-                <p>Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue elit vel odio suscipit, sit amet tempor nisl imperdiet. Quisque ex justo, faucibus ut mi in, condimentum finibus dolor. Aliquam vitae hendrerit dolor, eget imperdiet mauris. Maecenas et ante id ipsum condimentum dictum et vel massa. Ut in imperdiet dolor, vel consectetur dui.</p>
+                <p>Hi, I'm Toni. I come from Purbalingga, Indonesia. I am a programmer with more then 5 years of experience. Currently I work at <a href="https://stebasia.com/" target="_blank">PT Ultima Service Asia</a> since July 2021 as Full Stack Programmer. Apart from working in the company, I also worked freelance for 6 years. I have completed many projects and now I look forward to working with you.</p>
             </div>
 
             <div class="col-xs-12 col-sm-5">
                 <div class="info-list">
                     <ul>
                         <li>
-                            <span class="title">Age</span>
-                            <span class="value">32</span>
+                            <span class="title">Gender</span>
+                            <span class="value">Male</span>
                         </li>
 
                         <li>
-                            <span class="title">Residence</span>
-                            <span class="value">USA</span>
+                            <span class="title">Birtdate</span>
+                            <span class="value">Jun 21<sup>th</sup> 1994</span>
+                        </li>
+
+                        <li>
+                            <span class="title">E-Mail</span>
+                            <span class="value">me@tony3supriadi.com</span>
+                        </li>
+
+                        <li>
+                            <span class="title">Phone / WA</span>
+                            <span class="value">(+62) 895-3513-97216</span>
                         </li>
 
                         <li>
                             <span class="title">Address</span>
-                            <span class="value">88 Some Street, Some Town</span>
-                        </li>
-
-                        <li>
-                            <span class="title">e-mail</span>
-                            <span class="value">email@example.com</span>
-                        </li>
-
-                        <li>
-                            <span class="title">Phone</span>
-                            <span class="value">+0123 123 456 789</span>
+                            <span class="value">Kalapacung RT01 RW01, Kec. Bobotsari</span>
                         </li>
                     </ul>
                 </div>
@@ -60,11 +60,11 @@
                     <div class="info-list-w-icon">
                         <div class="info-block-w-icon">
                             <div class="ci-icon">
-                                <i class="lnr lnr-store"></i>
+                                <i class="lnr lnr-laptop-phone"></i>
                             </div>
                             <div class="ci-text">
-                                <h4>Ecommerce</h4>
-                                <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales.</p>
+                                <h4>Web / Mobile Developer</h4>
+                                <p>I am a programmer with more then 5 years of experience. So, I'm expert development for web application and mobile application.</p>
                             </div>
                         </div>
                         <div class="info-block-w-icon">
@@ -72,7 +72,7 @@
                                 <i class="lnr lnr-laptop-phone"></i>
                             </div>
                             <div class="ci-text">
-                                <h4>Web Design</h4>
+                                <h4>Wordpress Developer</h4>
                                 <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales.</p>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                 <i class="lnr lnr-pencil"></i>
                             </div>
                             <div class="ci-text">
-                                <h4>Copywriting</h4>
+                                <h4>Front-End Programmer</h4>
                                 <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales.</p>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                 <i class="lnr lnr-flag"></i>
                             </div>
                             <div class="ci-text">
-                                <h4>Management</h4>
+                                <h4>Back-End Programmer</h4>
                                 <p>Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales.</p>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
         <!-- End of Services -->
 
         <div class="white-space-30"></div>
-
+        {{--
         <!-- Testimonials -->
         <div class="row">
             <div class="col-xs-12 col-sm-12">
@@ -245,5 +245,6 @@
         <!-- End of Clients -->
 
         <div class="white-space-50"></div>
+        --}}
     </div>
 </section>

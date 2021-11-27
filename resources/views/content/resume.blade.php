@@ -14,25 +14,13 @@
                 <div class="timeline timeline-second-style clearfix">
                     <div class="timeline-item clearfix">
                         <div class="left-part">
-                            <h5 class="item-period">2008</h5>
-                            <span class="item-company">University of Studies</span>
+                            <h5 class="item-period">2012 - 2016</h5>
+                            <span class="item-company">UNIVERSITAS AMIKOM PURWOKERTO</span>
                         </div>
                         <div class="divider"></div>
                         <div class="right-part">
-                            <h4 class="item-title">Frontend Development</h4>
-                            <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item clearfix">
-                        <div class="left-part">
-                            <h5 class="item-period">2007</h5>
-                            <span class="item-company">University of Studies</span>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="right-part">
-                            <h4 class="item-title">Graphic Design</h4>
-                            <p>Aliquam tincidunt malesuada tortor vitae iaculis. In eu turpis iaculis, feugiat risus quis, aliquet urna. Quisque fringilla mollis risus, eu pulvinar dolor.</p>
+                            <h4 class="item-title">Informatics Engineering</h4>
+                            <p>The Department of Technology at Amikom University Purwokerto is a study program that focuses on network security or forensics, internet of things (IoT), as well as animation and games.</p>
                         </div>
                     </div>
                 </div>
@@ -46,36 +34,48 @@
                 <div class="timeline timeline-second-style clearfix">
                     <div class="timeline-item clearfix">
                         <div class="left-part">
-                            <h5 class="item-period">2016 - Current</h5>
-                            <span class="item-company">Google</span>
+                            <h5 class="item-period">2020 - Current</h5>
+                            <span class="item-company">PT. Ultima Service Asia</span>
                         </div>
                         <div class="divider"></div>
                         <div class="right-part">
-                            <h4 class="item-title">Lead Ui/Ux Designer</h4>
+                            <h4 class="item-title">Full Stack Programmer</h4>
                             <p>Praesent dignissim sollicitudin justo, sed elementum quam lacinia quis. Phasellus eleifend tristique posuere. Sed vitae dui nec magna.</p>
                         </div>
                     </div>
 
                     <div class="timeline-item clearfix">
                         <div class="left-part">
-                            <h5 class="item-period">2013 - 2016</h5>
-                            <span class="item-company">Adobe</span>
+                            <h5 class="item-period">2019 - 2020</h5>
+                            <span class="item-company">DINKOMINFO PURBALINGGA</span>
                         </div>
                         <div class="divider"></div>
                         <div class="right-part">
-                            <h4 class="item-title">Senior Ui/Ux Designer</h4>
+                            <h4 class="item-title">Back End Programmer</h4>
                             <p>Maecenas tempus faucibus rutrum. Duis eu aliquam urna. Proin vitae nulla tristique, ornare felis id, congue libero. Nam volutpat euismod quam.</p>
                         </div>
                     </div>
 
                     <div class="timeline-item clearfix">
                         <div class="left-part">
-                            <h5 class="item-period">2011 - 2013</h5>
-                            <span class="item-company">Google</span>
+                            <h5 class="item-period">2017 - 2019</h5>
+                            <span class="item-company">SMK NEGERI 1 REMBANG</span>
                         </div>
                         <div class="divider"></div>
                         <div class="right-part">
-                            <h4 class="item-title">Junior Ui/Ux Designer</h4>
+                            <h4 class="item-title">Teacher</h4>
+                            <p>Duis mollis nunc quis quam viverra venenatis. Nulla nulla arcu, congue vitae nunc ac, sodales ultricies diam. Nullam justo leo, tincidunt sit amet.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item clearfix">
+                        <div class="left-part">
+                            <h5 class="item-period">2016 - 2017</h5>
+                            <span class="item-company">PT. Pertamina (Persero) RU IV</span>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="right-part">
+                            <h4 class="item-title">Asistant Planning & Sceduling</h4>
                             <p>Duis mollis nunc quis quam viverra venenatis. Nulla nulla arcu, congue vitae nunc ac, sodales ultricies diam. Nullam justo leo, tincidunt sit amet.</p>
                         </div>
                     </div>
@@ -87,50 +87,49 @@
             <div class="col-xs-12 col-sm-5">
                 <!-- Design Skills -->
                 <div class="block-title">
-                    <h3>Design <span>Skills</span></h3>
+                    <h3>Language <span>Skills</span></h3>
                 </div>
 
                 <div class="skills-info skills-second-style">
                     <!-- Skill 1 -->
                     <div class="skill clearfix">
-                        <h4>Web Design</h4>
+                        <h4>PHP</h4>
                         <div class="skill-value">95%</div>
                     </div>
-                    <div class="skill-container skill-1">
+                    <div class="skill-container skill-95">
+                        <div class="skill-percentage"></div>
+                    </div>
+                    <!-- End of Skill 1 -->
+
+                    <!-- Skill 1 -->
+                    <div class="skill clearfix">
+                        <h4>HTML/CSS</h4>
+                        <div class="skill-value">95%</div>
+                    </div>
+                    <div class="skill-container skill-95">
                         <div class="skill-percentage"></div>
                     </div>
                     <!-- End of Skill 1 -->
 
                     <!-- Skill 2 -->
                     <div class="skill clearfix">
-                        <h4>Print Design</h4>
-                        <div class="skill-value">65%</div>
+                        <h4>Javascript</h4>
+                        <div class="skill-value">90%</div>
                     </div>
-                    <div class="skill-container skill-2">
+                    <div class="skill-container skill-90">
                         <div class="skill-percentage"></div>
                     </div>
                     <!-- End of Skill 2 -->
 
                     <!-- Skill 3 -->
                     <div class="skill clearfix">
-                        <h4>Logo Design</h4>
+                        <h4>Typescript</h4>
                         <div class="skill-value">80%</div>
                     </div>
-                    <div class="skill-container skill-3">
+                    <div class="skill-container skill-80">
                         <div class="skill-percentage"></div>
                     </div>
                     <!-- End of Skill 3 -->
-
-                    <!-- Skill 4 -->
-                    <div class="skill clearfix">
-                        <h4>Graphic Design</h4>
-                        <div class="skill-value">90%</div>
-                    </div>
-                    <div class="skill-container skill-4">
-                        <div class="skill-percentage"></div>
-                    </div>
-                    <!-- End of Skill 4 -->
-
                 </div>
                 <!-- End of Design Skills -->
 
@@ -138,59 +137,59 @@
 
                 <!-- Coding Skills -->
                 <div class="block-title">
-                    <h3>Coding <span>Skills</span></h3>
+                    <h3>Frameworkn <span>Skills</span></h3>
                 </div>
 
                 <div class="skills-info skills-second-style">
-                    <!-- Skill 5 -->
+                    <!-- Skill 2 -->
                     <div class="skill clearfix">
-                        <h4>JavaScript</h4>
+                        <h4>Laravel</h4>
                         <div class="skill-value">95%</div>
                     </div>
-                    <div class="skill-container skill-5">
+                    <div class="skill-container skill-95">
+                        <div class="skill-percentage"></div>
+                    </div>
+                    <!-- End of Skill 2 -->
+
+                    <!-- Skill 3 -->
+                    <div class="skill clearfix">
+                        <h4>Codeigniter</h4>
+                        <div class="skill-value">90%</div>
+                    </div>
+                    <div class="skill-container skill-90">
+                        <div class="skill-percentage"></div>
+                    </div>
+                    <!-- End of Skill 3 -->
+
+                    <!-- Skill 5 -->
+                    <div class="skill clearfix">
+                        <h4>Angular</h4>
+                        <div class="skill-value">75%</div>
+                    </div>
+                    <div class="skill-container skill-75">
                         <div class="skill-percentage"></div>
                     </div>
                     <!-- End of Skill 5 -->
 
-                    <!-- Skill 6 -->
+                    <!-- Skill 5 -->
                     <div class="skill clearfix">
-                        <h4>PHP</h4>
+                        <h4>ReactJS / NextJS</h4>
                         <div class="skill-value">85%</div>
                     </div>
-                    <div class="skill-container skill-6">
+                    <div class="skill-container skill-85">
                         <div class="skill-percentage"></div>
                     </div>
-                    <!-- End of Skill 6 -->
+                    <!-- End of Skill 5 -->
 
-                    <!-- Skill 7 -->
+                    <!-- Skill 5 -->
                     <div class="skill clearfix">
-                        <h4>HTML/CSS</h4>
-                        <div class="skill-value">100%</div>
+                        <h4>Bootstrap</h4>
+                        <div class="skill-value">95%</div>
                     </div>
-                    <div class="skill-container skill-7">
+                    <div class="skill-container skill-95">
                         <div class="skill-percentage"></div>
                     </div>
-                    <!-- End of Skill 7 -->
-
-                    <!-- Skill 8 -->
-                    <div class="skill clearfix">
-                        <h4>Smarty/Twig</h4>
-                        <div class="skill-value">75%</div>
-                    </div>
-                    <div class="skill-container skill-8">
-                        <div class="skill-percentage"></div>
-                    </div>
-                    <!-- End of Skill 8 -->
-
-                    <!-- Skill 9 -->
-                    <div class="skill clearfix">
-                        <h4>Perl</h4>
-                        <div class="skill-value">90%</div>
-                    </div>
-                    <div class="skill-container skill-9">
-                        <div class="skill-percentage"></div>
-                    </div>
-                    <!-- End of Skill 9 -->
+                    <!-- End of Skill 5 -->
                 </div>
                 <!-- End of Coding Skills -->
 
@@ -202,9 +201,8 @@
                 </div>
 
                 <ul class="knowledges">
-                    <li>Marketing</li>
-                    <li>Print</li>
-                    <li>Digital Design</li>
+                    <li>SEO</li>
+                    <li>Analyst System</li>
                     <li>Social Media</li>
                     <li>Time Management</li>
                     <li>Communication</li>
@@ -219,6 +217,7 @@
 
         <div class="white-space-50"></div>
 
+        {{--
         <!-- Certificates -->
         <div class="row">
             <div class="col-xs-12 col-sm-12">
@@ -281,5 +280,6 @@
 
         </div>
         <!-- End of Certificates -->
+        --}}
     </div>
 </section>
