@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" data-theme="" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,6 @@
   --topbar-bg: rgba(255,255,255,0.96);
   --width:     800px;
 }
-
 [data-theme="dark"] {
   --ink:       #e2e2e2;
   --sub:       #999999;
@@ -47,11 +46,15 @@ a { color: inherit; text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ===== Layout ===== */
-.wrap {
-  max-width: var(--width);
-  margin: 0 auto;
-  padding: 0 28px;
-}
+.wrap { max-width: var(--width); margin: 0 auto; padding: 0 28px; }
+
+/* ===== Language ===== */
+.lid  { display: none; }
+[data-lang="id"] .lid  { display: block; }
+[data-lang="id"] .len  { display: none; }
+.lid-inline { display: none; }
+[data-lang="id"] .lid-inline { display: inline; }
+[data-lang="id"] .len-inline { display: none; }
 
 /* ===== Top bar ===== */
 .topbar {
@@ -68,7 +71,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
 }
 .topbar-brand {
   display: flex;
@@ -82,13 +85,14 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--ink);
+  background: #111111;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   position: relative;
 }
+[data-theme="dark"] .logo-mark { background: #e2e2e2; }
 .logo-mark::after {
   content: '';
   position: absolute;
@@ -97,14 +101,15 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border: 0.75px solid rgba(255,255,255,0.15);
   pointer-events: none;
 }
+[data-theme="dark"] .logo-mark::after { border-color: rgba(0,0,0,0.12); }
 .lm-letter {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 22px;
   font-weight: 600;
   color: white;
   line-height: 1;
-  letter-spacing: 0;
 }
+[data-theme="dark"] .lm-letter { color: #111; }
 .lm-sub {
   font-family: 'Inter', sans-serif;
   font-size: 10px;
@@ -114,14 +119,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   top: 6px;
   margin: 0 0.5px;
 }
-.topbar-name {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  color: var(--ink);
-}
+[data-theme="dark"] .lm-sub { color: rgba(17,17,17,0.6); }
+
 .topbar-nav {
   display: flex;
   gap: 22px;
@@ -134,6 +133,54 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   transition: color 0.15s;
 }
 .topbar-nav a:hover { color: var(--ink); text-decoration: none; }
+
+/* Toggle buttons */
+.topbar-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+
+.lang-toggle {
+  height: 24px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--sub);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--sub);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: border-color 0.15s, color 0.15s;
+}
+.theme-toggle:hover { border-color: var(--ink); color: var(--ink); }
+.lang-toggle:hover { opacity: 0.75; border-color: var(--ink); }
+.lang-toggle {
+  padding: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.lang-toggle svg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun  { display: block; }
+
 .btn-dl {
   font-size: 13px;
   font-weight: 500;
@@ -148,17 +195,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .btn-dl:hover { background: var(--ink); color: #fff; text-decoration: none; }
 
 /* ===== Header ===== */
-.cv-header {
-  padding: 64px 0 48px;
-  border-bottom: 1px solid var(--rule);
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
+.cv-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+.header-inner { display: flex; align-items: center; gap: 40px; }
 
-/* Photo */
 .photo-wrap { flex-shrink: 0; }
 .photo {
   width: 130px;
@@ -169,21 +208,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   background-image: url('foto.jpeg');
   background-size: 360%;
   background-position: 50% 32%;
-  transform: scaleX(-1); /* flip agar menghadap kanan */
+  transform: scaleX(-1);
   flex-shrink: 0;
 }
 .photo img { display: none; }
-/* Dummy avatar shown when no real photo */
-.photo-dummy {
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: #999;
-  letter-spacing: -1px;
-  user-select: none;
-}
 
-/* Name & info */
 .header-info { flex: 1; }
 .cv-name {
   font-family: 'EB Garamond', Georgia, serif;
@@ -215,7 +244,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* ===== Section ===== */
 .section { padding: 38px 0; border-bottom: 1px solid var(--rule); }
 .section:last-of-type { border-bottom: none; }
-
 .sec-label {
   font-size: 10.5px;
   font-weight: 600;
@@ -233,10 +261,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: var(--sub);
 }
 
-/* ===== Experience / Entry ===== */
+/* ===== Entry ===== */
 .entry { margin-bottom: 30px; }
 .entry:last-child { margin-bottom: 0; }
-
 .entry-head {
   display: flex;
   justify-content: space-between;
@@ -250,54 +277,21 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   font-weight: 600;
   color: var(--ink);
 }
-.entry-date {
-  font-size: 13px;
-  color: var(--faint);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.entry-role {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-top: 2px;
-}
-.entry-desc {
-  font-size: 13.5px;
-  color: var(--sub);
-  margin-top: 5px;
-  line-height: 1.65;
-}
-.entry ul {
-  margin-top: 7px;
-  padding-left: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.entry li {
-  font-size: 13.5px;
-  color: var(--sub);
-  line-height: 1.65;
-}
+.entry-date { font-size: 13px; color: var(--faint); white-space: nowrap; flex-shrink: 0; }
+.entry-role { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-top: 2px; }
+.entry-desc { font-size: 13.5px; color: var(--sub); margin-top: 5px; line-height: 1.65; }
+.entry ul { margin-top: 7px; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
+.entry li { font-size: 13.5px; color: var(--sub); line-height: 1.65; }
 
 /* ===== Education ===== */
 .edu-degree { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-top: 2px; }
 .edu-note { font-size: 13.5px; color: var(--sub); margin-top: 4px; line-height: 1.65; }
 
 /* ===== Skills ===== */
-.skill-grid {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 11px 20px;
-  align-items: baseline;
-}
+.skill-grid { display: grid; grid-template-columns: 160px 1fr; gap: 11px 20px; align-items: baseline; }
 .skill-cat {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-size: 13.5px; font-weight: 600; color: var(--ink);
+  text-decoration: underline; text-underline-offset: 3px;
   text-decoration-color: var(--rule);
 }
 .skill-items { font-size: 13.5px; color: var(--sub); line-height: 1.65; }
@@ -310,23 +304,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .cert-table td:first-child { font-weight: 600; color: var(--ink); }
 .cert-table td:last-child { text-align: right; color: var(--faint); width: 60px; }
 
-.lang-line { margin-top: 16px; font-size: 13.5px; color: var(--sub); line-height: 1.65; }
-.lang-line strong { color: var(--ink); }
-
-/* ===== List sections ===== */
-.item-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
+/* ===== List ===== */
+.item-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 9px; }
 .item-list li {
-  font-size: 13.5px;
-  color: var(--sub);
-  line-height: 1.65;
-  padding-left: 18px;
-  position: relative;
+  font-size: 13.5px; color: var(--sub); line-height: 1.65;
+  padding-left: 18px; position: relative;
 }
 .item-list li::before { content: '•'; position: absolute; left: 0; color: var(--faint); }
 .item-list strong { color: var(--ink); font-weight: 600; }
@@ -335,50 +317,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ===== Footer ===== */
 .cv-footer {
-  padding: 26px 0;
-  border-top: 1px solid var(--rule);
-  text-align: center;
-  font-size: 13px;
-  color: var(--faint);
+  padding: 26px 0; border-top: 1px solid var(--rule);
+  text-align: center; font-size: 13px; color: var(--faint);
 }
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
+.social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 8px; flex-wrap: wrap; }
 .social-links a { color: var(--sub); font-weight: 500; }
 .social-links a:hover { color: var(--ink); }
-
-/* ===== Dark mode logo invert ===== */
-[data-theme="dark"] .logo-mark { background: #e2e2e2; }
-[data-theme="dark"] .logo-mark::after { border-color: rgba(0,0,0,0.12); }
-[data-theme="dark"] .lm-letter { color: #111; }
-[data-theme="dark"] .lm-sub { color: rgba(17,17,17,0.6); }
-
-/* ===== Theme toggle button ===== */
-.theme-toggle {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--rule);
-  background: transparent;
-  color: var(--sub);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: border-color 0.15s, color 0.15s, background 0.15s;
-}
-.theme-toggle:hover { border-color: var(--ink); color: var(--ink); }
-.theme-toggle svg { display: block; }
-/* show/hide icons based on theme */
-.icon-moon { display: block; }
-.icon-sun  { display: none; }
-[data-theme="dark"] .icon-moon { display: none; }
-[data-theme="dark"] .icon-sun  { display: block; }
 
 /* ===== Print ===== */
 @media print {
@@ -387,10 +331,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .section { padding: 24px 0; }
   .cv-name { font-size: 34px; }
   .summary-text { font-size: 15px; }
+  .lid, .len { display: block !important; }
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 620px) {
+@media (max-width: 640px) {
   .topbar-nav { display: none; }
   .header-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
   .cv-name { font-size: 32px; }
@@ -403,7 +348,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 </head>
 <body>
 
-<!-- Top bar -->
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a href="#" class="topbar-brand">
@@ -413,31 +357,57 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     </a>
     <nav>
       <ul class="topbar-nav">
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#experience"><span class="len-inline">Experience</span><span class="lid-inline">Pengalaman</span></a></li>
+        <li><a href="#education"><span class="len-inline">Education</span><span class="lid-inline">Pendidikan</span></a></li>
+        <li><a href="#skills"><span class="len-inline">Skills</span><span class="lid-inline">Keahlian</span></a></li>
+        <li><a href="#portfolio"><span class="len-inline">Portfolio</span><span class="lid-inline">Portofolio</span></a></li>
       </ul>
     </nav>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-      <!-- Moon: shown in light mode -->
-      <svg class="icon-moon" width="15" height="15" viewBox="0 0 15 15" fill="none">
-        <path d="M13 8a5.5 5.5 0 0 1-7.5-7.5A5.5 5.5 0 1 0 13 8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-      </svg>
-      <!-- Sun: shown in dark mode -->
-      <svg class="icon-sun" width="15" height="15" viewBox="0 0 15 15" fill="none">
-        <circle cx="7.5" cy="7.5" r="2.5" stroke="currentColor" stroke-width="1.4"/>
-        <line x1="7.5" y1="1" x2="7.5" y2="2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="7.5" y1="12.5" x2="7.5" y2="14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="1" y1="7.5" x2="2.5" y2="7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="12.5" y1="7.5" x2="14" y2="7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="3.05" y1="3.05" x2="4.11" y2="4.11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="10.89" y1="10.89" x2="11.95" y2="11.95" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="11.95" y1="3.05" x2="10.89" y2="4.11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <line x1="4.11" y1="10.89" x2="3.05" y2="11.95" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <a class="btn-dl" href="CV-Toni-Tri-Supriadi.pdf" download>Download CV</a>
+    <div class="topbar-actions">
+      <!-- Download CV -->
+      <a class="btn-dl" href="CV-Toni-Tri-Supriadi.pdf" download>Download CV</a>
+      <!-- Theme toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 15 15" fill="none">
+          <path d="M13 8a5.5 5.5 0 0 1-7.5-7.5A5.5 5.5 0 1 0 13 8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 15 15" fill="none">
+          <circle cx="7.5" cy="7.5" r="2.5" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="7.5" y1="1" x2="7.5" y2="2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="7.5" y1="12.5" x2="7.5" y2="14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="1" y1="7.5" x2="2.5" y2="7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="12.5" y1="7.5" x2="14" y2="7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="3.05" y1="3.05" x2="4.11" y2="4.11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="10.89" y1="10.89" x2="11.95" y2="11.95" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="11.95" y1="3.05" x2="10.89" y2="4.11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="4.11" y1="10.89" x2="3.05" y2="11.95" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <!-- Language toggle -->
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <!-- Show GB flag when in EN mode (active language = English) -->
+        <span class="len-inline">
+          <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <rect width="60" height="60" fill="#012169"/>
+            <line x1="0" y1="0" x2="60" y2="60" stroke="white" stroke-width="10"/>
+            <line x1="60" y1="0" x2="0" y2="60" stroke="white" stroke-width="10"/>
+            <line x1="0" y1="0" x2="60" y2="60" stroke="#C8102E" stroke-width="6"/>
+            <line x1="60" y1="0" x2="0" y2="60" stroke="#C8102E" stroke-width="6"/>
+            <rect x="24" y="0" width="12" height="60" fill="white"/>
+            <rect x="0" y="24" width="60" height="12" fill="white"/>
+            <rect x="26" y="0" width="8" height="60" fill="#C8102E"/>
+            <rect x="0" y="26" width="60" height="8" fill="#C8102E"/>
+          </svg>
+        </span>
+        <!-- Show ID flag when in ID mode (active language = Indonesian) -->
+        <span class="lid-inline">
+          <svg viewBox="0 0 2 2" xmlns="http://www.w3.org/2000/svg">
+            <rect width="2" height="1" fill="#CE1126"/>
+            <rect y="1" width="2" height="1" fill="#FFFFFF"/>
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -446,16 +416,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   <!-- Header -->
   <div class="cv-header">
     <div class="header-inner">
-
       <div class="photo-wrap">
         <div class="photo">
           <img src="foto.jpeg" alt="Toni Tri Supriadi">
         </div>
       </div>
-
       <div class="header-info">
         <h1 class="cv-name">Toni Tri Supriadi</h1>
-        <div class="cv-title">Full Stack Developer</div>
+        <div class="cv-title">
+          <span class="len-inline">Full Stack Developer</span>
+          <span class="lid-inline">Full Stack Developer</span>
+        </div>
         <div class="cv-contact">
           <a href="tel:+6289535139721">+62 895-3513-9721-6</a>
           <span class="sep">•</span>
@@ -463,37 +434,55 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
           <span class="sep">•</span>
           <a href="https://tony3supriadi.com" target="_blank" rel="noopener">tony3supriadi.com</a>
           <span class="sep">•</span>
-          <span>Purbalingga, Central Java, Indonesia</span>
+          <span class="len-inline">Purbalingga, Central Java, Indonesia</span>
+          <span class="lid-inline">Purbalingga, Jawa Tengah, Indonesia</span>
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- Summary -->
   <section class="section">
-    <div class="sec-label">Summary</div>
-    <p class="summary-text">
+    <div class="sec-label">
+      <span class="len-inline">Summary</span>
+      <span class="lid-inline">Ringkasan</span>
+    </div>
+    <p class="summary-text len">
       Full Stack Developer with 5+ years of experience in full digital performance, branding, and creative services.
       Specialized in building web applications from end to end — covering Frontend, Backend, and the development
       of scalable, brand-aligned Design Systems. Expert at partnering with creative and strategic teams to turn complex
       requirements into intuitive, reliable, and impactful digital experiences. Driven by clean code principles, modern
       engineering standards, and a continuous pursuit of quality.
     </p>
+    <p class="summary-text lid">
+      Full Stack Developer dengan 5+ tahun pengalaman di bidang digital performance, branding, dan layanan kreatif.
+      Spesialisasi dalam membangun aplikasi web dari ujung ke ujung — mencakup Frontend, Backend, dan pengembangan
+      Design System yang skalabel dan selaras dengan brand. Ahli bermitra dengan tim kreatif dan strategis untuk
+      mengubah kebutuhan kompleks menjadi pengalaman digital yang intuitif, andal, dan berdampak. Didorong oleh
+      prinsip kode bersih, standar engineering modern, dan pencapaian kualitas tanpa henti.
+    </p>
   </section>
 
   <!-- Experience -->
   <section class="section" id="experience">
-    <div class="sec-label">Experience</div>
+    <div class="sec-label">
+      <span class="len-inline">Experience</span>
+      <span class="lid-inline">Pengalaman</span>
+    </div>
 
+    <!-- PT Ultima -->
     <div class="entry">
       <div class="entry-head">
         <span class="entry-company">PT Ultima Service Asia</span>
         <span class="entry-date">2021 — Present</span>
       </div>
-      <div class="entry-role">Senior Web Developer</div>
-      <div class="entry-desc">Ultima Service Asia has division teams in Kemang and Kuningan. Focuses on providing full digital performance, brand and creative services with a strong focus on solutions and measurable results (ROAS, ROI, CPO, CPL, Brand Awareness etc).</div>
-      <ul>
+      <div class="entry-role">
+        <span class="len-inline">Senior Web Developer</span>
+        <span class="lid-inline">Senior Web Developer</span>
+      </div>
+      <div class="entry-desc len">Ultima Service Asia has division teams in Kemang and Kuningan. Focuses on providing full digital performance, brand and creative services with a strong focus on solutions and measurable results (ROAS, ROI, CPO, CPL, Brand Awareness etc).</div>
+      <div class="entry-desc lid">Ultima Service Asia memiliki tim divisi di Kemang dan Kuningan. Berfokus pada penyediaan layanan digital performance, brand, dan kreatif dengan penekanan kuat pada solusi dan hasil terukur (ROAS, ROI, CPO, CPL, Brand Awareness, dll).</div>
+      <ul class="len">
         <li>Collaborate with the creative team, UI/UX Designers, and project managers to design and develop websites based on client needs and requirements.</li>
         <li>Develop, deploy, and maintain both frontend and backend websites to ensure optimal performance, security, and stability.</li>
         <li>Develop new features, improve website performance, and optimize SEO and responsive design to enhance user experience.</li>
@@ -503,16 +492,31 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
         <li>Provide technical guidance, conduct code reviews, and supervise development teams to maintain code quality and development standards.</li>
         <li>Conduct regular testing, monitoring, and evaluations to ensure website functionality, compatibility, and system performance run properly.</li>
       </ul>
+      <ul class="lid">
+        <li>Berkolaborasi dengan tim kreatif, UI/UX Designer, dan project manager untuk merancang dan mengembangkan website sesuai kebutuhan klien.</li>
+        <li>Mengembangkan, mendeploy, dan memelihara website frontend dan backend untuk memastikan performa, keamanan, dan stabilitas optimal.</li>
+        <li>Mengembangkan fitur baru, meningkatkan performa website, serta mengoptimalkan SEO dan desain responsif untuk meningkatkan pengalaman pengguna.</li>
+        <li>Melakukan troubleshooting, debugging, dan bug fixing untuk website, server, dan sistem yang berjalan.</li>
+        <li>Mengelola database, integrasi API, dan konfigurasi server untuk mendukung kebutuhan aplikasi web dan sistem.</li>
+        <li>Memastikan keamanan website dengan menerapkan praktik keamanan terbaik seperti validasi data, perlindungan autentikasi, dan pemantauan aktivitas sistem.</li>
+        <li>Memberikan panduan teknis, melakukan code review, dan mengawasi tim pengembangan untuk menjaga kualitas kode dan standar pengembangan.</li>
+        <li>Melakukan pengujian, pemantauan, dan evaluasi rutin untuk memastikan fungsionalitas website, kompatibilitas, dan performa sistem berjalan dengan baik.</li>
+      </ul>
     </div>
 
+    <!-- Dinas Kominfo -->
     <div class="entry">
       <div class="entry-head">
-        <span class="entry-company">Department of Communication and Informatics — Purbalingga</span>
+        <span class="entry-company">
+          <span class="len-inline">Department of Communication and Informatics — Purbalingga</span>
+          <span class="lid-inline">Dinas Komunikasi dan Informatika — Purbalingga</span>
+        </span>
         <span class="entry-date">2019 — 2021</span>
       </div>
       <div class="entry-role">Full Stack Programmer</div>
-      <div class="entry-desc">Government institution responsible for managing information technology, communication, and digital services to support public services and regional digital transformation.</div>
-      <ul>
+      <div class="entry-desc len">Government institution responsible for managing information technology, communication, and digital services to support public services and regional digital transformation.</div>
+      <div class="entry-desc lid">Instansi pemerintah yang bertanggung jawab mengelola teknologi informasi, komunikasi, dan layanan digital untuk mendukung pelayanan publik dan transformasi digital daerah.</div>
+      <ul class="len">
         <li>Develop and maintain web-based applications according to the information system requirements within the department.</li>
         <li>Design and manage databases, APIs, and system integrations to support digital services and data exchange between applications.</li>
         <li>Develop both frontend and backend systems to ensure applications are responsive, efficient, and user-friendly.</li>
@@ -521,16 +525,30 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
         <li>Handle deployment, monitoring, and maintenance of servers and applications to ensure stable system performance.</li>
         <li>Collaborate with internal teams to analyze requirements, develop features, and implement system solutions.</li>
       </ul>
+      <ul class="lid">
+        <li>Mengembangkan dan memelihara aplikasi berbasis web sesuai kebutuhan sistem informasi di lingkungan dinas.</li>
+        <li>Merancang dan mengelola database, API, dan integrasi sistem untuk mendukung layanan digital dan pertukaran data antar aplikasi.</li>
+        <li>Mengembangkan sistem frontend dan backend agar aplikasi responsif, efisien, dan ramah pengguna.</li>
+        <li>Melakukan troubleshooting, debugging, dan bug fixing pada aplikasi dan sistem terkait.</li>
+        <li>Memastikan keamanan aplikasi dan data dengan menerapkan standar keamanan informasi yang tepat dan praktik terbaik.</li>
+        <li>Menangani deployment, pemantauan, dan pemeliharaan server serta aplikasi untuk memastikan performa sistem yang stabil.</li>
+        <li>Berkolaborasi dengan tim internal untuk menganalisis kebutuhan, mengembangkan fitur, dan mengimplementasikan solusi sistem.</li>
+      </ul>
     </div>
 
+    <!-- SMK -->
     <div class="entry">
       <div class="entry-head">
         <span class="entry-company">SMK Negeri 1 Rembang</span>
         <span class="entry-date">2017 — 2019</span>
       </div>
-      <div class="entry-role">Software Engineering Teacher</div>
-      <div class="entry-desc">Vocational high school offering a Software Engineering major, focusing on developing students' technical skills, creativity, and readiness for the technology and digital industry.</div>
-      <ul>
+      <div class="entry-role">
+        <span class="len-inline">Software Engineering Teacher</span>
+        <span class="lid-inline">Guru Rekayasa Perangkat Lunak</span>
+      </div>
+      <div class="entry-desc len">Vocational high school offering a Software Engineering major, focusing on developing students' technical skills, creativity, and readiness for the technology and digital industry.</div>
+      <div class="entry-desc lid">Sekolah menengah kejuruan dengan jurusan Rekayasa Perangkat Lunak, berfokus pada pengembangan keterampilan teknis, kreativitas, dan kesiapan siswa untuk industri teknologi dan digital.</div>
+      <ul class="len">
         <li>Teach Software Engineering subjects in accordance with the applicable curriculum.</li>
         <li>Guide students in programming practices, website development, application development, and database management.</li>
         <li>Prepare learning materials, practical modules, and student evaluations.</li>
@@ -539,30 +557,46 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
         <li>Keep up with the latest technology trends and implement industry-based learning methods to prepare students for the workforce.</li>
         <li>Collaborate with other teachers and industry partners to improve learning quality and student competencies.</li>
       </ul>
+      <ul class="lid">
+        <li>Mengajar mata pelajaran Rekayasa Perangkat Lunak sesuai kurikulum yang berlaku.</li>
+        <li>Membimbing siswa dalam praktik pemrograman, pengembangan website, pembuatan aplikasi, dan manajemen database.</li>
+        <li>Menyiapkan materi pembelajaran, modul praktikum, dan evaluasi siswa.</li>
+        <li>Membimbing siswa dalam proyek, kompetisi, dan Program Kerja Industri (PKL).</li>
+        <li>Menilai kompetensi teori dan praktik siswa secara berkala.</li>
+        <li>Mengikuti perkembangan teknologi terkini dan menerapkan metode pembelajaran berbasis industri untuk mempersiapkan siswa memasuki dunia kerja.</li>
+        <li>Berkolaborasi dengan guru lain dan mitra industri untuk meningkatkan kualitas pembelajaran dan kompetensi siswa.</li>
+      </ul>
     </div>
   </section>
 
   <!-- Education -->
   <section class="section" id="education">
-    <div class="sec-label">Education</div>
-
+    <div class="sec-label">
+      <span class="len-inline">Education</span>
+      <span class="lid-inline">Pendidikan</span>
+    </div>
     <div class="entry">
       <div class="entry-head">
         <span class="entry-company">STMIK Amikom Purwokerto</span>
         <span class="entry-date">2012 — 2016</span>
       </div>
-      <div class="edu-degree">Bachelor of Informatics Engineering</div>
-      <div class="edu-note">
-        Now Universitas Amikom Purwokerto (since 2018). Graduated with a GPA of 3.52 / 4.00. Thesis: <em>"E-Commerce Service for Restaurants"</em> — published in the university's internal journal.
+      <div class="edu-degree">
+        <span class="len-inline">Bachelor of Informatics Engineering</span>
+        <span class="lid-inline">Sarjana Teknik Informatika</span>
       </div>
+      <div class="edu-note len">Now Universitas Amikom Purwokerto (since 2018). Graduated with a GPA of 3.52 / 4.00. Thesis: <em>"E-Commerce Service for Restaurants"</em> — published in the university's internal journal.</div>
+      <div class="edu-note lid">Kini Universitas Amikom Purwokerto (sejak 2018). Lulus dengan IPK 3.52 / 4.00. Skripsi: <em>"Layanan E-Commerce untuk Restoran"</em> — dipublikasikan di jurnal internal kampus.</div>
     </div>
   </section>
 
   <!-- Skills -->
   <section class="section" id="skills">
-    <div class="sec-label">Skills</div>
+    <div class="sec-label">
+      <span class="len-inline">Skills</span>
+      <span class="lid-inline">Keahlian</span>
+    </div>
     <div class="skill-grid">
-      <span class="skill-cat">Web Development</span>
+      <span class="skill-cat"><span class="len-inline">Web Development</span><span class="lid-inline">Pengembangan Web</span></span>
       <span class="skill-items">HTML · CSS · SCSS · Tailwind · Bootstrap · Javascript</span>
 
       <span class="skill-cat">Frontend</span>
@@ -571,14 +605,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       <span class="skill-cat">Backend</span>
       <span class="skill-items">Laravel · Node.js · Express.js · Nest.js · Bun · Hono · Go · Gin</span>
 
-      <span class="skill-cat">Tools &amp; Methodology</span>
+      <span class="skill-cat"><span class="len-inline">Tools &amp; Methodology</span><span class="lid-inline">Alat &amp; Metodologi</span></span>
       <span class="skill-items">Git / Github · Jira · Trello · Docker · Figma · Claude · DevOps · Testing</span>
     </div>
   </section>
 
   <!-- Certifications -->
   <section class="section">
-    <div class="sec-label">Certifications</div>
+    <div class="sec-label">
+      <span class="len-inline">Certifications</span>
+      <span class="lid-inline">Sertifikasi</span>
+    </div>
     <table class="cert-table">
       <tr>
         <td>API, Web, CMS, and Docker Multi-Container Architecture Certificate</td>
@@ -595,10 +632,13 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     </table>
   </section>
 
-  <!-- Portfolio & Achievements -->
+  <!-- Portfolio -->
   <section class="section" id="portfolio">
-    <div class="sec-label">Selected Portfolio &amp; Achievements</div>
-    <ul class="item-list">
+    <div class="sec-label">
+      <span class="len-inline">Selected Portfolio &amp; Achievements</span>
+      <span class="lid-inline">Portofolio &amp; Pencapaian</span>
+    </div>
+    <ul class="item-list len">
       <li><strong>Police Service Application</strong> (Ionic &amp; Laravel) — Freelance — Public service app presented by Kepolisian Resor Purbalingga for easier access to police information and services.</li>
       <li><strong>Mobile MaturBupati App</strong> (Flutter) — Dinas Kominfo Purbalingga — Community complaint application to the district government.</li>
       <li><strong>Digital Queue Services</strong> (Laravel) — Dinas Kominfo Purbalingga — Services development progress tracking application.</li>
@@ -615,37 +655,61 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       <li><strong>Skripkoding.com</strong> — Freelance — Learning management system platform.</li>
       <li><strong>AnugrahPS Application</strong> — Freelance — Financial management application for Anugrah PS Farm.</li>
     </ul>
+    <ul class="item-list lid">
+      <li><strong>Aplikasi Layanan Kepolisian</strong> (Ionic &amp; Laravel) — Freelance — Aplikasi layanan publik yang dipersembahkan oleh Kepolisian Resor Purbalingga untuk memudahkan akses informasi dan layanan kepolisian bagi masyarakat.</li>
+      <li><strong>Mobile MaturBupati</strong> (Flutter) — Dinas Kominfo Purbalingga — Aplikasi pengaduan masyarakat kepada pemerintah daerah.</li>
+      <li><strong>Layanan Antrian Digital</strong> (Laravel) — Dinas Kominfo Purbalingga — Aplikasi pemantauan progress pengembangan layanan.</li>
+      <li><strong>Sistem Izin Penelitian</strong> (Laravel) — Dinas Kominfo Purbalingga — Aplikasi perizinan bagi instansi atau mahasiswa yang melakukan penelitian.</li>
+      <li><strong>Kemang.sg</strong> (Next.js) — PT Ultima Service Asia — Website company profile untuk Kemang.</li>
+      <li><strong>Kuningan.de</strong> (Laravel) — PT Ultima Service Asia — Website company profile untuk Kuningan.</li>
+      <li><strong>Kemangdigital.com</strong> (Laravel) — PT Ultima Service Asia — Website company profile untuk Kemang Digital.</li>
+      <li><strong>Okku.co.id</strong> (Next.js + Laravel) — PT Ultima Service Asia — Platform berisi ulasan karyawan dan pengalaman kerja.</li>
+      <li><strong>Sellyourcar24.ch</strong> (Laravel) — PT Ultima Service Asia — Proses jual mobil cepat dengan input detail kendaraan untuk estimasi harga dan penawaran terbaik.</li>
+      <li><strong>Dealers.sellyourcar24.ch</strong> (Laravel + Livewire) — PT Ultima Service Asia — Marketplace jual mobil dari sellyourcar24.ch.</li>
+      <li><strong>Scuuro.com</strong> — PT Ultima Service Asia — Website produk Scuuro, pigmen ultra-hitam berbasis melanin.</li>
+      <li><strong>Immospora.ch</strong> — PT Ultima Service Asia — Website asuransi properti untuk perlindungan rumah di Kosovo.</li>
+      <li><strong>Bim-pt.co.id</strong> — Freelance — Website company profile.</li>
+      <li><strong>Skripkoding.com</strong> — Freelance — Platform learning management system.</li>
+      <li><strong>Aplikasi AnugrahPS</strong> — Freelance — Aplikasi manajemen keuangan untuk Anugrah PS Farm.</li>
+    </ul>
   </section>
 
 </main>
 
-<!-- Footer -->
 <footer class="cv-footer">
   <div class="wrap">
     <div class="social-links">
       <a href="https://tony3supriadi.com" target="_blank" rel="noopener">tony3supriadi.com</a>
       <a href="mailto:itsme@tony3supriadi.com">itsme@tony3supriadi.com</a>
     </div>
-    <div>© 2026 Toni Tri Supriadi · Purbalingga, Central Java, Indonesia</div>
+    <div>© 2026 Toni Tri Supriadi · Purbalingga, <span class="len-inline">Central Java</span><span class="lid-inline">Jawa Tengah</span>, Indonesia</div>
   </div>
 </footer>
 
 <script>
   const html = document.documentElement;
-  const btn  = document.getElementById('themeToggle');
-  // Load saved preference, fallback to system preference
-  const saved = localStorage.getItem('theme');
+
+  // ── Theme ──
+  const themeBtn = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (saved) {
-    html.setAttribute('data-theme', saved);
-  } else if (prefersDark) {
-    html.setAttribute('data-theme', 'dark');
-  }
-  btn.addEventListener('click', () => {
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    const next = isDark ? 'light' : 'dark';
+  html.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+  themeBtn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+  });
+
+  // ── Language ──
+  const langBtn = document.getElementById('langToggle');
+  const savedLang = localStorage.getItem('lang') || 'en';
+  html.setAttribute('data-lang', savedLang);
+  html.setAttribute('lang', savedLang);
+  langBtn.addEventListener('click', () => {
+    const next = html.getAttribute('data-lang') === 'en' ? 'id' : 'en';
+    html.setAttribute('data-lang', next);
+    html.setAttribute('lang', next);
+    localStorage.setItem('lang', next);
   });
 </script>
 </body>
