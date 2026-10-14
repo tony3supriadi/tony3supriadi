@@ -319,7 +319,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* ===== Footer ===== */
 .cv-footer {
   padding: 26px 0; border-top: 1px solid var(--rule);
-  text-align: center; font-size: 13px; color: var(--faint);
+  text-align: center; font-size: 16px; color: var(--faint);
 }
 .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 8px; flex-wrap: wrap; }
 .social-links a { color: var(--sub); font-weight: 500; }
@@ -341,7 +341,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 @media (max-width: 640px) {
   .topbar-nav { display: none; }
-  .header-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .header-inner { flex-direction: column; align-items: center; gap: 20px; }
+  .cv-name, .cv-title, .cv-contact { text-align: center; }
+  .cv-contact { justify-content: center; }
   .cv-name { font-size: 32px; }
   .cv-header { padding: 40px 0 32px; }
   .skill-grid { grid-template-columns: 1fr; gap: 3px; }
