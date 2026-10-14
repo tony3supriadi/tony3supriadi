@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toni Tri Supriadi — Full Stack Developer</title>
+<meta name="description" content="Full Stack Developer with 5+ years of experience in full digital performance, branding, and creative services. Based in Purbalingga, Central Java, Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:    #111111;
+  --sub:    #444444;
+  --faint:  #888888;
+  --rule:   #d4d4d4;
+  --bg:     #ffffff;
+  --width:  800px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ===== Layout ===== */
+.wrap {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ===== Top bar ===== */
+.topbar {
+  border-bottom: 1px solid var(--rule);
+  padding: 13px 0;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  z-index: 20;
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.topbar-name {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.topbar-nav {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+}
+.topbar-nav a {
+  font-size: 13px;
+  color: var(--sub);
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.topbar-nav a:hover { color: var(--ink); text-decoration: none; }
+.btn-dl {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 6px 14px;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+.btn-dl:hover { background: var(--ink); color: #fff; text-decoration: none; }
+
+/* ===== Header ===== */
+.cv-header {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--rule);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Photo */
+.photo-wrap { flex-shrink: 0; }
+.photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background-image: url('foto.jpeg');
+  background-size: 360%;
+  background-position: 50% 32%;
+  transform: scaleX(-1); /* flip agar menghadap kanan */
+  flex-shrink: 0;
+}
+.photo img { display: none; }
+/* Dummy avatar shown when no real photo */
+.photo-dummy {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #999;
+  letter-spacing: -1px;
+  user-select: none;
+}
+
+/* Name & info */
+.header-info { flex: 1; }
+.cv-name {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.cv-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--sub);
+  margin-top: 6px;
+}
+.cv-contact {
+  margin-top: 12px;
+  font-size: 13.5px;
+  color: var(--sub);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  align-items: center;
+}
+.cv-contact .sep { margin: 0 8px; color: var(--rule); }
+.cv-contact a:hover { color: var(--ink); }
+
+/* ===== Section ===== */
+.section { padding: 38px 0; border-bottom: 1px solid var(--rule); }
+.section:last-of-type { border-bottom: none; }
+
+.sec-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 22px;
+}
+
+/* ===== Summary ===== */
+.summary-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.72;
+  color: var(--sub);
+}
+
+/* ===== Experience / Entry ===== */
+.entry { margin-bottom: 30px; }
+.entry:last-child { margin-bottom: 0; }
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.entry-company {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.entry-date {
+  font-size: 13px;
+  color: var(--faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.entry-role {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 2px;
+}
+.entry-desc {
+  font-size: 13.5px;
+  color: var(--sub);
+  margin-top: 5px;
+  line-height: 1.65;
+}
+.entry ul {
+  margin-top: 7px;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.entry li {
+  font-size: 13.5px;
+  color: var(--sub);
+  line-height: 1.65;
+}
+
+/* ===== Education ===== */
+.edu-degree { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-top: 2px; }
+.edu-note { font-size: 13.5px; color: var(--sub); margin-top: 4px; line-height: 1.65; }
+
+/* ===== Skills ===== */
+.skill-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 11px 20px;
+  align-items: baseline;
+}
+.skill-cat {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+}
+.skill-items { font-size: 13.5px; color: var(--sub); line-height: 1.65; }
+
+/* ===== Certifications ===== */
+.cert-table { width: 100%; border-collapse: collapse; }
+.cert-table tr { border-bottom: 1px dotted var(--rule); }
+.cert-table tr:last-child { border-bottom: none; }
+.cert-table td { padding: 7px 0; font-size: 13.5px; color: var(--sub); }
+.cert-table td:first-child { font-weight: 600; color: var(--ink); }
+.cert-table td:last-child { text-align: right; color: var(--faint); width: 60px; }
+
+.lang-line { margin-top: 16px; font-size: 13.5px; color: var(--sub); line-height: 1.65; }
+.lang-line strong { color: var(--ink); }
+
+/* ===== List sections ===== */
+.item-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.item-list li {
+  font-size: 13.5px;
+  color: var(--sub);
+  line-height: 1.65;
+  padding-left: 18px;
+  position: relative;
+}
+.item-list li::before { content: '•'; position: absolute; left: 0; color: var(--faint); }
+.item-list strong { color: var(--ink); font-weight: 600; }
+.item-list a { color: var(--faint); font-size: 13px; }
+.item-list a:hover { color: var(--ink); }
+
+/* ===== Footer ===== */
+.cv-footer {
+  padding: 26px 0;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-size: 13px;
+  color: var(--faint);
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.social-links a { color: var(--sub); font-weight: 500; }
+.social-links a:hover { color: var(--ink); }
+
+/* ===== Print ===== */
+@media print {
+  .topbar { display: none; }
+  .cv-header { padding: 0 0 28px; }
+  .section { padding: 24px 0; }
+  .cv-name { font-size: 34px; }
+  .summary-text { font-size: 15px; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 620px) {
+  .topbar-nav { display: none; }
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .cv-name { font-size: 32px; }
+  .cv-header { padding: 40px 0 32px; }
+  .skill-grid { grid-template-columns: 1fr; gap: 3px; }
+  .skill-cat { margin-top: 10px; }
+  .entry-head { flex-direction: column; gap: 1px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="topbar-name">Toni Tri Supriadi</span>
+    <nav>
+      <ul class="topbar-nav">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+      </ul>
+    </nav>
+    <a class="btn-dl" href="CV-Toni-Tri-Supriadi.pdf" download>Download CV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Header -->
+  <div class="cv-header">
+    <div class="header-inner">
+
+      <div class="photo-wrap">
+        <div class="photo">
+          <img src="foto.jpeg" alt="Toni Tri Supriadi">
+        </div>
+      </div>
+
+      <div class="header-info">
+        <h1 class="cv-name">Toni Tri Supriadi</h1>
+        <div class="cv-title">Full Stack Developer</div>
+        <div class="cv-contact">
+          <a href="tel:+6289535139721">+62 895-3513-9721-6</a>
+          <span class="sep">•</span>
+          <a href="mailto:itsme@tony3supriadi.com">itsme@tony3supriadi.com</a>
+          <span class="sep">•</span>
+          <a href="https://tony3supriadi.com" target="_blank" rel="noopener">tony3supriadi.com</a>
+          <span class="sep">•</span>
+          <span>Purbalingga, Central Java, Indonesia</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <section class="section">
+    <div class="sec-label">Summary</div>
+    <p class="summary-text">
+      Full Stack Developer with 5+ years of experience in full digital performance, branding, and creative services.
+      Specialized in building web applications from end to end — covering Frontend, Backend, and the development
+      of scalable, brand-aligned Design Systems. Expert at partnering with creative and strategic teams to turn complex
+      requirements into intuitive, reliable, and impactful digital experiences. Driven by clean code principles, modern
+      engineering standards, and a continuous pursuit of quality.
+    </p>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="sec-label">Experience</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-company">PT Ultima Service Asia</span>
+        <span class="entry-date">2021 — Present</span>
+      </div>
+      <div class="entry-role">Senior Web Developer</div>
+      <div class="entry-desc">Ultima Service Asia has division teams in Kemang and Kuningan. Focuses on providing full digital performance, brand and creative services with a strong focus on solutions and measurable results (ROAS, ROI, CPO, CPL, Brand Awareness etc).</div>
+      <ul>
+        <li>Collaborate with the creative team, UI/UX Designers, and project managers to design and develop websites based on client needs and requirements.</li>
+        <li>Develop, deploy, and maintain both frontend and backend websites to ensure optimal performance, security, and stability.</li>
+        <li>Develop new features, improve website performance, and optimize SEO and responsive design to enhance user experience.</li>
+        <li>Perform troubleshooting, debugging, and bug fixing for websites, servers, and running systems.</li>
+        <li>Manage databases, API integrations, and server configurations to support web application and system requirements.</li>
+        <li>Ensure website security by implementing security best practices such as data validation, authentication protection, and system activity monitoring.</li>
+        <li>Provide technical guidance, conduct code reviews, and supervise development teams to maintain code quality and development standards.</li>
+        <li>Conduct regular testing, monitoring, and evaluations to ensure website functionality, compatibility, and system performance run properly.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-company">Department of Communication and Informatics — Purbalingga</span>
+        <span class="entry-date">2019 — 2021</span>
+      </div>
+      <div class="entry-role">Full Stack Programmer</div>
+      <div class="entry-desc">Government institution responsible for managing information technology, communication, and digital services to support public services and regional digital transformation.</div>
+      <ul>
+        <li>Develop and maintain web-based applications according to the information system requirements within the department.</li>
+        <li>Design and manage databases, APIs, and system integrations to support digital services and data exchange between applications.</li>
+        <li>Develop both frontend and backend systems to ensure applications are responsive, efficient, and user-friendly.</li>
+        <li>Perform troubleshooting, debugging, and bug fixing for applications and related systems.</li>
+        <li>Ensure application and data security by implementing proper information security standards and best practices.</li>
+        <li>Handle deployment, monitoring, and maintenance of servers and applications to ensure stable system performance.</li>
+        <li>Collaborate with internal teams to analyze requirements, develop features, and implement system solutions.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-company">SMK Negeri 1 Rembang</span>
+        <span class="entry-date">2017 — 2019</span>
+      </div>
+      <div class="entry-role">Software Engineering Teacher</div>
+      <div class="entry-desc">Vocational high school offering a Software Engineering major, focusing on developing students' technical skills, creativity, and readiness for the technology and digital industry.</div>
+      <ul>
+        <li>Teach Software Engineering subjects in accordance with the applicable curriculum.</li>
+        <li>Guide students in programming practices, website development, application development, and database management.</li>
+        <li>Prepare learning materials, practical modules, and student evaluations.</li>
+        <li>Mentor students in projects, competitions, and Industrial Internship Programs (PKL).</li>
+        <li>Assess students' theoretical and practical competencies on a regular basis.</li>
+        <li>Keep up with the latest technology trends and implement industry-based learning methods to prepare students for the workforce.</li>
+        <li>Collaborate with other teachers and industry partners to improve learning quality and student competencies.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section" id="education">
+    <div class="sec-label">Education</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-company">STMIK Amikom Purwokerto</span>
+        <span class="entry-date">2012 — 2016</span>
+      </div>
+      <div class="edu-degree">Bachelor of Informatics Engineering</div>
+      <div class="edu-note">
+        Now Universitas Amikom Purwokerto (since 2018). Graduated with a GPA of 3.52 / 4.00. Thesis: <em>"E-Commerce Service for Restaurants"</em> — published in the university's internal journal.
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="sec-label">Skills</div>
+    <div class="skill-grid">
+      <span class="skill-cat">Web Development</span>
+      <span class="skill-items">HTML · CSS · SCSS · Tailwind · Bootstrap · Javascript</span>
+
+      <span class="skill-cat">Frontend</span>
+      <span class="skill-items">React · Next.js · Angular · Ionic · React Native · Flutter</span>
+
+      <span class="skill-cat">Backend</span>
+      <span class="skill-items">Laravel · Node.js · Express.js · Nest.js · Bun · Hono · Go · Gin</span>
+
+      <span class="skill-cat">Tools &amp; Methodology</span>
+      <span class="skill-items">Git / Github · Jira · Trello · Docker · Figma · Claude · DevOps · Testing</span>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section">
+    <div class="sec-label">Certifications</div>
+    <table class="cert-table">
+      <tr>
+        <td>API, Web, CMS, and Docker Multi-Container Architecture Certificate</td>
+        <td>2026</td>
+      </tr>
+      <tr>
+        <td>Super Fast, Anti-Hack &amp; Free Website Forever Certificate</td>
+        <td>2026</td>
+      </tr>
+      <tr>
+        <td>Database Cluster: Master-Slave Architecture</td>
+        <td>2026</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Portfolio & Achievements -->
+  <section class="section" id="portfolio">
+    <div class="sec-label">Selected Portfolio &amp; Achievements</div>
+    <ul class="item-list">
+      <li><strong>Police Service Application</strong> (Ionic &amp; Laravel) — Freelance — Public service app presented by Kepolisian Resor Purbalingga for easier access to police information and services.</li>
+      <li><strong>Mobile MaturBupati App</strong> (Flutter) — Dinas Kominfo Purbalingga — Community complaint application to the district government.</li>
+      <li><strong>Digital Queue Services</strong> (Laravel) — Dinas Kominfo Purbalingga — Services development progress tracking application.</li>
+      <li><strong>Research Permission System</strong> (Laravel) — Dinas Kominfo Purbalingga — Permit/authorization application for departments or students conducting research.</li>
+      <li><strong>Kemang.sg</strong> (Next.js) — PT Ultima Service Asia — Company profile website for Kemang.</li>
+      <li><strong>Kuningan.de</strong> (Laravel) — PT Ultima Service Asia — Company profile website for Kuningan.</li>
+      <li><strong>Kemangdigital.com</strong> (Laravel) — PT Ultima Service Asia — Company profile website for Kemang Digital.</li>
+      <li><strong>Okku.co.id</strong> (Next.js + Laravel) — PT Ultima Service Asia — Platform containing employee reviews and work experiences.</li>
+      <li><strong>Sellyourcar24.ch</strong> (Laravel) — PT Ultima Service Asia — Fast car-selling process with vehicle detail input for best price estimates and offers.</li>
+      <li><strong>Dealers.sellyourcar24.ch</strong> (Laravel + Livewire) — PT Ultima Service Asia — Car-selling marketplace from sellyourcar24.ch.</li>
+      <li><strong>Scuuro.com</strong> — PT Ultima Service Asia — Product website for Scuuro, an ultra-black pigment based on melanin.</li>
+      <li><strong>Immospora.ch</strong> — PT Ultima Service Asia — Property insurance website for home protection in Kosovo.</li>
+      <li><strong>Bim-pt.co.id</strong> — Freelance — Company profile website.</li>
+      <li><strong>Skripkoding.com</strong> — Freelance — Learning management system platform.</li>
+      <li><strong>AnugrahPS Application</strong> — Freelance — Financial management application for Anugrah PS Farm.</li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="cv-footer">
+  <div class="wrap">
+    <div class="social-links">
+      <a href="https://tony3supriadi.com" target="_blank" rel="noopener">tony3supriadi.com</a>
+      <a href="mailto:itsme@tony3supriadi.com">itsme@tony3supriadi.com</a>
+    </div>
+    <div>© 2026 Toni Tri Supriadi · Purbalingga, Central Java, Indonesia</div>
+  </div>
+</footer>
+
+</body>
+</html>
