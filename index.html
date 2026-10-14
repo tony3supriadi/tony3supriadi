@@ -232,7 +232,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .cv-contact {
   margin-top: 12px;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--sub);
   display: flex;
   flex-wrap: wrap;
@@ -336,6 +336,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 /* ===== Responsive ===== */
+@media (min-width: 641px) {
+  .cv-contact { font-size: 18px; }
+}
 @media (max-width: 640px) {
   .topbar-nav { display: none; }
   .header-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
