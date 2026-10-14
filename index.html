@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Toni Tri Supriadi — Full Stack Developer</title>
 <meta name="description" content="Full Stack Developer with 5+ years of experience in full digital performance, branding, and creative services. Based in Purbalingga, Central Java, Indonesia.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -57,12 +58,57 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   justify-content: space-between;
   gap: 16px;
 }
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.topbar-brand:hover { text-decoration: none; opacity: 0.8; }
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 0.75px solid rgba(255,255,255,0.15);
+  pointer-events: none;
+}
+.lm-letter {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.lm-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  top: 6px;
+  margin: 0 0.5px;
+}
 .topbar-name {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.02em;
   white-space: nowrap;
+  color: var(--ink);
 }
 .topbar-nav {
   display: flex;
@@ -319,7 +365,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 <!-- Top bar -->
 <header class="topbar">
   <div class="wrap topbar-inner">
-    <span class="topbar-name">Toni Tri Supriadi</span>
+    <a href="#" class="topbar-brand">
+      <div class="logo-mark" aria-hidden="true">
+        <span class="lm-letter">T</span><span class="lm-sub">3</span><span class="lm-letter">S</span>
+      </div>
+    </a>
     <nav>
       <ul class="topbar-nav">
         <li><a href="#experience">Experience</a></li>
