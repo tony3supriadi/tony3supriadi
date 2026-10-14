@@ -33,9 +33,9 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.72;
   color: var(--ink);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
@@ -49,14 +49,15 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .wrap { max-width: var(--width); margin: 0 auto; padding: 0 28px; }
 
 /* ===== Language ===== */
-.lid  { display: none; }
-[data-lang="id"] .lid  { display: block; }
-[data-lang="id"] .len  { display: none; }
-.lid-inline { display: none; }
-[data-lang="id"] .lid-inline { display: inline; }
-[data-lang="id"] .len-inline { display: none; }
+.lid  { display: none !important; }
+[data-lang="id"] .lid  { display: block !important; }
+[data-lang="id"] .len  { display: none !important; }
+.lid-inline { display: none !important; }
+[data-lang="id"] .lid-inline { display: inline !important; }
+[data-lang="id"] .len-inline { display: none !important; }
 
 /* ===== Top bar ===== */
+.topbar, .topbar * { font-family: 'Inter', system-ui, sans-serif; }
 .topbar {
   border-bottom: 1px solid var(--rule);
   padding: 13px 0;
@@ -273,41 +274,41 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .entry-company {
   font-family: 'EB Garamond', Georgia, serif;
-  font-size: 19px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--ink);
 }
-.entry-date { font-size: 13px; color: var(--faint); white-space: nowrap; flex-shrink: 0; }
-.entry-role { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-top: 2px; }
-.entry-desc { font-size: 13.5px; color: var(--sub); margin-top: 5px; line-height: 1.65; }
+.entry-date { font-size: 14px; color: var(--faint); white-space: nowrap; flex-shrink: 0; }
+.entry-role { font-weight: 600; color: var(--ink); margin-top: 2px; }
+.entry-desc { color: var(--sub); margin-top: 5px; }
 .entry ul { margin-top: 7px; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
-.entry li { font-size: 13.5px; color: var(--sub); line-height: 1.65; }
+.entry li { color: var(--sub); }
 
 /* ===== Education ===== */
-.edu-degree { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-top: 2px; }
-.edu-note { font-size: 13.5px; color: var(--sub); margin-top: 4px; line-height: 1.65; }
+.edu-degree { font-weight: 600; color: var(--ink); margin-top: 2px; }
+.edu-note { color: var(--sub); margin-top: 4px; }
 
 /* ===== Skills ===== */
-.skill-grid { display: grid; grid-template-columns: 160px 1fr; gap: 11px 20px; align-items: baseline; }
+.skill-grid { display: grid; grid-template-columns: 180px 1fr; gap: 11px 20px; align-items: baseline; }
 .skill-cat {
-  font-size: 13.5px; font-weight: 600; color: var(--ink);
+  font-weight: 600; color: var(--ink);
   text-decoration: underline; text-underline-offset: 3px;
   text-decoration-color: var(--rule);
 }
-.skill-items { font-size: 13.5px; color: var(--sub); line-height: 1.65; }
+.skill-items { color: var(--sub); }
 
 /* ===== Certifications ===== */
 .cert-table { width: 100%; border-collapse: collapse; }
 .cert-table tr { border-bottom: 1px dotted var(--rule); }
 .cert-table tr:last-child { border-bottom: none; }
-.cert-table td { padding: 7px 0; font-size: 13.5px; color: var(--sub); }
+.cert-table td { padding: 7px 0; color: var(--sub); }
 .cert-table td:first-child { font-weight: 600; color: var(--ink); }
 .cert-table td:last-child { text-align: right; color: var(--faint); width: 60px; }
 
 /* ===== List ===== */
 .item-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 9px; }
 .item-list li {
-  font-size: 13.5px; color: var(--sub); line-height: 1.65;
+  color: var(--sub);
   padding-left: 18px; position: relative;
 }
 .item-list li::before { content: '•'; position: absolute; left: 0; color: var(--faint); }
@@ -365,7 +366,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     </nav>
     <div class="topbar-actions">
       <!-- Download CV -->
-      <a class="btn-dl" href="CV-Toni-Tri-Supriadi.pdf" download>Download CV</a>
+      <a class="btn-dl" href="CV-Toni-Tri-Supriadi.pdf" download><span class="len-inline">Download CV</span><span class="lid-inline">Unduh CV</span></a>
       <!-- Theme toggle -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <svg class="icon-moon" width="20" height="20" viewBox="0 0 15 15" fill="none">
@@ -474,7 +475,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     <div class="entry">
       <div class="entry-head">
         <span class="entry-company">PT Ultima Service Asia</span>
-        <span class="entry-date">2021 — Present</span>
+        <span class="entry-date">2021 — <span class="len-inline">Present</span><span class="lid-inline">Sekarang</span></span>
       </div>
       <div class="entry-role">
         <span class="len-inline">Senior Web Developer</span>
@@ -702,14 +703,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
   // ── Language ──
   const langBtn = document.getElementById('langToggle');
-  const savedLang = localStorage.getItem('lang') || 'en';
-  html.setAttribute('data-lang', savedLang);
-  html.setAttribute('lang', savedLang);
+  html.setAttribute('data-lang', 'en');
+  html.setAttribute('lang', 'en');
   langBtn.addEventListener('click', () => {
     const next = html.getAttribute('data-lang') === 'en' ? 'id' : 'en';
     html.setAttribute('data-lang', next);
     html.setAttribute('lang', next);
-    localStorage.setItem('lang', next);
   });
 </script>
 </body>
