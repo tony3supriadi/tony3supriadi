@@ -208,7 +208,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid var(--rule);
-  background-image: url('foto.jpeg');
+  background-image: url('foto.webp');
+  background-image: -webkit-image-set(url('foto.webp') 1x);
+  background-image: image-set(url('foto.webp') type('image/webp'), url('foto.jpeg') type('image/jpeg'));
   background-size: 360%;
   background-position: 50% 32%;
   transform: scaleX(-1);
